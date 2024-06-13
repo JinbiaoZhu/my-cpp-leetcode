@@ -1,5 +1,6 @@
 #include<iostream>
 #include<math.h>
+#include<assert.h>
 #include"MyLinkedList.h"
 
 using namespace std;
@@ -30,23 +31,8 @@ MyLinkedList::LinkNode::LinkNode(int val)
 	this->next = nullptr;
 }
 
-void MyLinkedList::printLinkedList() 
-{
-	LinkNode* current = this->_dummyHead->next;
 
-	while (true)
-	{
-		cout << current->val << " ";
-		if (current->next == nullptr)
-		{
-			break;
-		}
-		current = current->next;
-	}
-	cout << endl;
-}
-
-void getIntersectionNode(MyLinkedList::LinkNode* Head_A, MyLinkedList::LinkNode* Head_B)
+MyLinkedList::LinkNode* getIntersectionNode(MyLinkedList::LinkNode* Head_A, MyLinkedList::LinkNode* Head_B)
 {
 	MyLinkedList::LinkNode* current_A = Head_A;
 	MyLinkedList::LinkNode* current_B = Head_B;
@@ -66,5 +52,79 @@ void getIntersectionNode(MyLinkedList::LinkNode* Head_A, MyLinkedList::LinkNode*
 		size_B++;
 	}
 
-	int delta = abs(size_A - size_B);
+	int delta = size_A - size_B;
+
+	if (delta >= 0) 
+	{
+		delta = abs(delta);
+
+		MyLinkedList::LinkNode* current_A = Head_A;
+		MyLinkedList::LinkNode* current_B = Head_B;
+
+		for (int i = 0; i < delta; i++) 
+		{
+			current_A = current_A->next;
+		}
+
+		while (true)
+		{
+			if (current_A->val == current_B->val) 
+			{
+				return current_A;
+			}
+			current_A = current_A->next;
+			current_B = current_B->next;
+			if (current_A->next == nullptr || current_B->next == nullptr) 
+			{
+				break;
+			}
+		}
+
+	}
+	if (delta < 0)
+	{
+		delta = abs(delta);
+
+		MyLinkedList::LinkNode* current_A = Head_A;
+		MyLinkedList::LinkNode* current_B = Head_B;
+
+		for (int i = 0; i < delta; i++)
+		{
+			current_B = current_B->next;
+		}
+
+		while (true)
+		{
+			if (current_A->val == current_B->val)
+			{
+				return current_B;
+			}
+			current_A = current_A->next;
+			current_B = current_B->next;
+			if (current_A->next == nullptr || current_B->next == nullptr)
+			{
+				break;
+			}
+		}
+
+	}
+
+	return nullptr;
+}
+
+
+void printLinkedList(MyLinkedList::LinkNode* start) 
+{
+
+	MyLinkedList::LinkNode* current = start;
+	while (true)
+	{
+		cout << current->val << " ";
+		if (current->next == nullptr) 
+		{
+			break;
+		}
+		current = current->next;
+	}
+	cout << endl;
 }

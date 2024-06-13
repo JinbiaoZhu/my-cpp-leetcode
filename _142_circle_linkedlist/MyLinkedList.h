@@ -1,10 +1,9 @@
 #pragma once
 
-
 class MyLinkedList
 {
 public:
-	MyLinkedList(int *arr,int size);
+	MyLinkedList(int *arr,int size, int pos);
 	~MyLinkedList();
 
 	struct LinkNode
@@ -14,14 +13,15 @@ public:
 		LinkNode(int val);
 	};
 
-	int _size;
+	LinkNode* detectCircle();
+
 	LinkNode* _dummyHead;
+	int _size;
 
 private:
 
 };
 
-MyLinkedList::LinkNode* getIntersectionNode(MyLinkedList::LinkNode* Head_A, MyLinkedList::LinkNode* Head_B);
 
 void printLinkedList(MyLinkedList::LinkNode* start);
 
