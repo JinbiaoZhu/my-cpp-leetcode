@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{eb6f76e0-b7f2-4b02-bf7c-e0b6fd329a88}</ProjectGuid>
-    <RootNamespace>My350intersectionoftwoarrays2</RootNamespace>
+    <ProjectGuid>{f20f1611-06e7-4579-95b2-142b1f9e41cb}</ProjectGuid>
+    <RootNamespace>My202happynumber</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="intersection.cpp" />
-    <ClCompile Include="_350_intersection_of_two_arrays_2.cpp" />
+    <ClCompile Include="is_happy_number.cpp" />
+    <ClCompile Include="_202_happy_number.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="intersection.h" />
+    <ClInclude Include="is_happy_number.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
