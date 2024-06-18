@@ -5,6 +5,7 @@ This is my C++ coding repository for solving LeetCode's problems.
 
  1. 第 019 题是移除倒数第 `N` 个元素；而第 203 题是移除整数第 `N` 个元素。
  2. 第 349 题和第 350 题都是考察 Hash 表的基本操作的。
+ 3. 第 015 题自己写的算法 `solution1` 不好，修改了三次通过率也才 `98/313` 。
 
 
 
