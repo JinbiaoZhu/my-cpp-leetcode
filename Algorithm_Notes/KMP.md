@@ -36,23 +36,90 @@ KMP µÄÖ÷ÒªË¼ÏëÊÇ **µ±³öÏÖ×Ö·û´®²»Æ¥ÅäÊ±** £¬¿ÉÒÔÖªµÀ **Ò»²¿·ÖÖ®Ç°ÒÑ¾­Æ¥ÅäµÄÎÄ±¾Ä
 
    Ç°×º±íµÄÈÎÎñÊÇµ±Ç°Î»ÖÃÆ¥ÅäÊ§°Ü£¬<u>ÕÒµ½Ö®Ç°ÒÑ¾­Æ¥ÅäÉÏµÄÎ»ÖÃ£¬ÔÙÖØÐÂÆ¥Åä</u>£¬´ËÒ²ÒâÎ¶×ÅÔÚÄ³¸ö×Ö·ûÊ§ÅäÊ±£¬Ç°×º±í»á¸æËßÄã<u>ÏÂÒ»²½Æ¥ÅäÖÐ£¬Ä£Ê½´®Ó¦¸ÃÌøµ½ÄÄ¸öÎ»ÖÃ</u>¡£
 
-4. 
+4.  next Êý×é£º¾Í¿ÉÒÔ¿´×÷ÊÇÇ°×º±í¡£ºÜ¶à next Êý×éµÄÊµÏÖ¶¼ÊÇ°ÑÇ°×º±íÍ³Ò»¼õÒ»£¨ÓÒÒÆÒ»Î»£¬³õÊ¼Î»ÖÃÎª -1 £©Ö®ºó×÷Îª next Êý×é¡£
 
+### 2. ÊµÏÖË¼Â·
 
+²Î¿¼´úÂëËæÏëÂ¼ÍøÒ³: [µã»÷ÕâÀï](https://programmercarl.com/0028.%E5%AE%9E%E7%8E%B0strStr.html#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E5%89%8D%E7%BC%80%E8%A1%A8) ¡£
 
-### 2. Ç°×º±íµÄ´úÂëÊµÏÖ
+### 3. Ç°×º±íµÄ´úÂëÊµÏÖ
 
 Ç°×º±íµÄÔªËØ = µÚ index ¸öÔªËØ**°üÀ¨×Ô¼ºµÄ**×Ó×Ö·û´®µÄ**×î³¤¹«¹²Ç°ºó×º³¤¶ÈÖµ**¡£
 
-ÄÇÃ´ next Êý×éÓëÇ°×º±íÓÐÊ²Ã´¹ØÏµÄØ£¿ next Êý×é¾Í¿ÉÒÔÊÇÇ°×º±í£¬µ«ÊÇºÜ¶àÊµÏÖ¶¼ÊÇ°ÑÇ°×º±íÍ³Ò»¼õÒ»£¨ÓÒÒÆÒ»Î»£¬³õÊ¼Î»ÖÃÎª -1 £©Ö®ºó×÷Îª next Êý×é¡£ÆäÊµÕâ²¢²»Éæ¼°µ½ KMP Ëã·¨µÄÔ­Àí£¬¶øÊÇ¾ßÌåÊµÏÖ£¬ next Êý×é¼È¿ÉÒÔ¾ÍÊÇÇ°×º±í£¬Ò²¿ÉÒÔÊÇÇ°×º±íÍ³Ò»¼õÒ»£¨ÓÒÒÆÒ»Î»£¬³õÊ¼Î»ÖÃÎª -1 £©¡£
+#### 3.1 ¹¹ÔìÇ°×º±íÊý×é£¨²»¼õÒ»°æ±¾£©
 
-### 2.1 ¹¹Ôì next Êý×é
+```c++
+void getNext(int* next, const string& s) {
+    int j = 0;
+    next[0] = 0;
+    for(int i = 1; i < s.size(); i++) {
+        while (j > 0 && s[i] != s[j]) { // jÒª±£Ö¤´óÓÚ0£¬ÒòÎªÏÂÃæÓÐÈ¡j-1×÷ÎªÊý×éÏÂ±êµÄ²Ù×÷
+            j = next[j - 1]; // ×¢ÒâÕâÀï£¬ÊÇÒªÕÒÇ°Ò»Î»µÄ¶ÔÓ¦µÄ»ØÍËÎ»ÖÃÁË
+        }
+        if (s[i] == s[j]) {
+            j++;
+        }
+        next[i] = j;
+    }
+}
+```
 
+#### 3.2 ¹¹Ôì next Êý×é£¨¼õÒ»°æ±¾£©
 
+¶¨ÒåÁ½¸öÖ¸Õë `i` ºÍ `j` £¬ `j` Ö¸Ïò**Ç°×ºÄ©Î²Î»ÖÃ**£¬ `i` Ö¸Ïò**ºó×ºÄ©Î²Î»ÖÃ**¡£ÆäÖÐ `j` ±»³õÊ¼»¯Îª `-1` £¬ÕâÊÇÒòÎªÎÒÃÇ¹æ¶¨ next Êý×éÄÚµÄÔªËØ½øÐÐÍ³Ò»¼õÒ»µÄ²Ù×÷¡£ `next[i]` ±íÊ¾ `i`£¨°üÀ¨ `i` £©Ö®Ç°×î³¤ÏàµÈµÄÇ°ºó×º³¤¶È£¨¼Ç×¡ÓÐÒ»¸ö¼õ 1 µÄ²Ù×÷£¬ÆäÊµ¾ÍÊÇÓÃ `j` ³õÊ¼»¯£©¡£
 
+ÒòÎª `j` ³õÊ¼»¯Îª `-1` £¨¼Ç×¡ÓÐÒ»¸ö¼õ 1 µÄ²Ù×÷£¬ÆäÊµ¾ÍÊÇ `0-1=-1` £©£¬ÄÇÃ´ `i` ¾Í´Ó `1` ¿ªÊ¼£¬½øÐÐ `s[i]` Óë `s[j+1]` µÄ±È½Ï£¬¹Ê±éÀúÄ£Ê½´® `s` µÄÑ­»·ÏÂ±ê `i` Òª´Ó `1` ¿ªÊ¼¡£
 
+Èç¹û `s[i]` Óë `s[j+1]`²»ÏàÍ¬£¬Ò²¾ÍÊÇÓöµ½Ç°ºó×ºÄ©Î²²»ÏàÍ¬µÄÇé¿ö£¬¾ÍÒªÏòÇ°»ØÍË¡£ `next[j]` ¾ÍÊÇ¼ÇÂ¼×Å `j` £¨°üÀ¨ `j` £©Ö®Ç°µÄ×Ó´®µÄÏàÍ¬Ç°ºó×ºµÄ³¤¶È¡£ÄÇÃ´µ± `s[i]` Óë `s[j+1]` ²»ÏàÍ¬Ê±£¬¾ÍÒªÕÒ `j+1` Ç°Ò»¸öÔªËØÔÚ `next` Êý×éÀïµÄÖµ£¨¾ÍÊÇ `next[j]` £©¡£
 
-### 3. ÈçºÎÊ¹ÓÃÇ°×º±í
+Èç¹û `s[i]` Óë `s[j + 1]` ÏàÍ¬£¬ËµÃ÷ÕÒµ½ÁËÏàÍ¬µÄÇ°ºó×º£¬ÄÇÃ´¾ÍÍ¬Ê±ÏòºóÒÆ¶¯ `i` ºÍ `j` £¬Í¬Ê±»¹Òª½« `j` £¨Ç°×ºµÄ³¤¶È£©¸³¸ø `next[i]` £¬ÒòÎª `next[i]` Òª¼ÇÂ¼ÏàÍ¬Ç°ºó×ºµÄ³¤¶È¡£
+
+```c++
+void getNext(int* next, const string& s){
+    int j = -1;
+    next[0] = j;
+    for(int i = 1; i < s.size(); i++) { // ×¢Òâi´Ó1¿ªÊ¼
+        while (j >= 0 && s[i] != s[j + 1]) { // Ç°ºó×º²»ÏàÍ¬ÁË
+            j = next[j]; // ÏòÇ°»ØÍË
+        }
+        if (s[i] == s[j + 1]) { // ÕÒµ½ÏàÍ¬µÄÇ°ºó×º
+            j++;
+        }
+        next[i] = j; // ½«j£¨Ç°×ºµÄ³¤¶È£©¸³¸ønext[i]
+    }
+}
+```
+
+²Î¿¼Í¼Æ¬£º
+
+![ next Êý¾ÝµÄÉú³É](https://code-thinking.cdn.bcebos.com/gifs/KMP%E7%B2%BE%E8%AE%B23.gif)
+
+### 4. ÈçºÎÊ¹ÓÃÇ°×º±í£¨ÈçºÎÊ¹ÓÃ next Êý×éÀ´×öÆ¥Åä£©
+
+ÔÚÎÄ±¾´® `s` ÀïÕÒÊÇ·ñ³öÏÖ¹ýÄ£Ê½´® `t` ¡£¶¨ÒåÁ½¸öÏÂ±ê `j` Ö¸ÏòÄ£Ê½´®ÆðÊ¼Î»ÖÃ£¬ `i` Ö¸ÏòÎÄ±¾´®ÆðÊ¼Î»ÖÃ¡£ÄÇÃ´ `j` ³õÊ¼ÖµÒÀÈ»Îª `-1` £¬ÎªÊ²Ã´ÄØ£¿ **ÒÀÈ»ÒòÎª next Êý×éÀï¼ÇÂ¼µÄÆðÊ¼Î»ÖÃÎª `-1` ¡£**
+
+`i` ¾Í´Ó `0` ¿ªÊ¼£¬±éÀúÎÄ±¾´®£¬½ÓÏÂÀ´¾ÍÊÇ `s[i]` Óë `t[j+1]`  £¨ÒòÎª `j` ´Ó `-1`  ¿ªÊ¼µÄ£©½øÐÐ±È½Ï¡£
+
+Èç¹û `s[i]` Óë `t[j+1]` ²»ÏàÍ¬£¬ `j` ¾ÍÒª´Ó next Êý×éÀïÑ°ÕÒÏÂÒ»¸öÆ¥ÅäµÄÎ»ÖÃ¡£
+
+Èç¹û `s[i]` Óë `t[j+1]` ÏàÍ¬£¬ÄÇÃ´ `i` ºÍ `j` Í¬Ê±ÏòºóÒÆ¶¯¡£
+
+Èç¹û `j` Ö¸ÏòÁËÄ£Ê½´® `t` µÄÄ©Î²£¬ÄÇÃ´¾ÍËµÃ÷Ä£Ê½´® `t` ÍêÈ«Æ¥ÅäÎÄ±¾´® `s` ÀïµÄÄ³¸ö×Ó´®ÁË¡£
+
+```c++
+int j = -1; // ÒòÎªnextÊý×éÀï¼ÇÂ¼µÄÆðÊ¼Î»ÖÃÎª-1
+for (int i = 0; i < s.size(); i++) { // ×¢Òâi¾Í´Ó0¿ªÊ¼
+    while(j >= 0 && s[i] != t[j + 1]) { // ²»Æ¥Åä
+        j = next[j]; // j Ñ°ÕÒÖ®Ç°Æ¥ÅäµÄÎ»ÖÃ
+    }
+    if (s[i] == t[j + 1]) { // Æ¥Åä£¬jºÍiÍ¬Ê±ÏòºóÒÆ¶¯
+        j++; // iµÄÔö¼ÓÔÚforÑ­»·Àï
+    }
+    if (j == (t.size() - 1) ) { // ÎÄ±¾´®sÀï³öÏÖÁËÄ£Ê½´®t
+        return (i - t.size() + 1);
+    }
+}
+```
 
 
 
