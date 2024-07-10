@@ -1,4 +1,8 @@
 #include "repeatedSubstringPattern.h"
+#include <vector>
+#include<iostream>
+
+using namespace std;
 
 bool repeatedSubstringPattern(const string& s)
 {
@@ -6,10 +10,23 @@ bool repeatedSubstringPattern(const string& s)
     {
         return false;
     }
-    int next[s.size()];
+
+    vector<int> next(s.size());
+    
     getNext(next, s);
+    // 打印 next 向量的内容
+    std::cout << "next vector: ";
+    for (int i : next) {
+        std::cout << i << " ";
+    }
+    std::cout << std::endl;
+
     int len = s.size();
-    if (next[len - 1] != -1 && len % (len - (next[len - 1])) == 0) 
+    cout << "The length of the string is " << len << endl;
+
+    int last_number = next[static_cast<std::vector<int, std::allocator<int>>::size_type>(len) - 1];
+    
+    if (last_number != 0 && len % (len - (last_number)) == 0)
     {
         return true;
     }
@@ -17,7 +34,7 @@ bool repeatedSubstringPattern(const string& s)
     return false;
 }
 
-void getNext(int* next, const string& s)
+void getNext(vector<int>& next, const string& s)
 {
     int j = 0;
     next[0] = j;

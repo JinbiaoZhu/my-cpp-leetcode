@@ -1,7 +1,8 @@
 #pragma once
 #include<string>
+#include<vector>
 
 using namespace std;
 
-bool repeatedSubstringPattern(string s);
-void getNext(int* next, const string& s);
+bool repeatedSubstringPattern(const string& s);
+void getNext(vector<int>& next, const string& s);
