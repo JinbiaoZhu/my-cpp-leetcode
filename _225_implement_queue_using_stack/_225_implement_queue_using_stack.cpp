@@ -1,24 +1,27 @@
 ﻿#include <iostream>
-#include"MyQueue.h"
+#include"MyStack.h"
 
 using namespace std;
 
 int main()
 {
     std::cout << "Hello World!\n";
-    MyQueue* obj = new MyQueue();
+
+    MyStack* obj = new MyStack();
+
     obj->push(10);
+    obj->push(20);
+    obj->push(30);
     int param_2 = obj->pop();
-    obj->push(10);
-    int param_3 = obj->peek();
+    int param_3 = obj->top();
     bool param_4 = obj->empty();
     if (param_4)
     {
-        cout << "The queue is empty." << endl;
+        cout << "Yes" << endl;
     }
-    else 
+    else
     {
-        cout << "The queue is not empty." << endl;
+        cout << "Not" << endl;
     }
 
     cin.get();

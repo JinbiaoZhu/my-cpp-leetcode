@@ -26,6 +26,7 @@ int MyQueue::pop()
 		{
 			int tmp = sInt.top();
 			sOut.push(tmp);
+			sInt.pop();
 		}
 	}
 	int result = sOut.top();
