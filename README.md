@@ -30,10 +30,98 @@ This is my C++ coding repository for solving LeetCode's problems.
  - 第 202 题目中说了会 **无限循环** ，那么也就是说求和的过程中，sum的结果可能会重复出现，这对解题很重要！
 
  - Carl:"首先我再强调一下 *什么时候使用哈希法* ，当我们需要 **查询一个元素是否出现过** ，或者 **一个元素是否在集合里的时候** ，就要第一时间想到哈希法。"
- 
+
  - 字符串相关题目目前学习了两个方法：1. 宏观逆序 + 微观逆序；2. 字符数组逆序 + 双指针。
 
  - 数组长度减去最长相同前后缀的长度相当于是第一个周期的长度，也就是一个周期的长度，如果这个周期可以被整除，就说明整个数组就是这个周期的循环。
+
+ - 优先级队列的定义
+
+   ```c++
+   priority_queue<pair<int, int>, vector<pair<int, int>>, myComparation> pri_que;
+   ```
+
+   这段代码定义了一个优先级队列（priority_queue），其元素类型为 `pair<int, int>` ，底层容器为 `vector<pair<int, int>>` ，并使用了自定义的比较函数 `myComparation` 来确定优先级。
+
+   `priority_queue<pair<int, int>>` : `priority_queue` 是 C++ 标准库提供的一个模板类，用于实现优先级队列。 `<pair<int, int>>` 指定了优先级队列中存储的元素类型为 `pair<int, int>` ，即每个元素是一个由两个 `int` 类型组成的对（pair）。 `vector<pair<int, int>>` : 这是优先级队列底层存储元素的容器类型。 `vector<pair<int, int>>` 表示优先级队列将使用 `vector` 来存储其元素。`vector` 是一种动态数组，可以动态调整大小。 `myComparation` : 这是一个自定义的比较函数对象（也可以是一个函数指针或一个 lambda 表达式），用于确定优先级队列中元素的排序规则。 `myComparation` 必须实现一个返回布尔值的函数，接受两个 `pair<int, int>` 类型的参数，来比较它们的优先级。例如，如果 `myComparation(a, b)` 返回 `true` ，则在优先级队列中 `a` 的优先级高于 `b` 。
+
+- 二叉树系列定义
+
+  1. 在完全二叉树中，除了最底层节点可能没填满外，其余每层节点数都达到最大值，并且最下面一层的节点都集中在该层最左边的若干位置。
+
+     若最底层为第 `h` 层（ `h` 从 1 开始），则该层包含 `1~2^(h-1)` 个节点。
+
+  2. 优先级队列其实是一个堆，堆就是一棵完全二叉树，同时保证父子节点的顺序关系。
+
+  3. 二叉搜索树是一个有序树。若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；它的左、右子树也分别为二叉排序树。
+
+  4. 平衡二叉搜索树：又被称为 AVL（Adelson-Velsky and Landis）树，且具有以下性质：它是一棵空树或它的左右两个子树的高度差的绝对值不超过 1 ，并且左右两个子树都是一棵平衡二叉树。
+
+     C++ 中 `map` 、 `set` 、 `multimap` ， `multiset` 的底层实现都是平衡二叉搜索树，所以 `map` 、 `set` 的增删操作时间时间复杂度是 `logn` 。
+
+- 用数组来存储二叉树如何遍历的呢？如果父节点的**数组下标**是 `i` ，那么它的左孩子就是 `i * 2 + 1` ，右孩子就是 `i * 2 + 2` 。
+
+- 遍历顺序
+
+  ```mermaid
+  graph LR
+  
+  o(二叉树的遍历方式)
+  o1(深度优先遍历)
+  o2(广度优先遍历)
+  o11(前序遍历)
+  o12(中序遍历)
+  o13(后序遍历)
+  o21(层次遍历)
+  o111(中间结点: 中左右)
+  o112(方法: 递归法/迭代法)
+  o121(中间结点: 左中右)
+  o122(方法: 递归法/迭代法)
+  o131(中间结点: 左右中)
+  o132(方法: 递归法/迭代法)
+  
+  o --- o1
+  o --- o2
+  o1 --- o11
+  o1 --- o12
+  o1 --- o13
+  o2 --- o21
+  o11 --- o111
+  o11 --- o112
+  o12 --- o121
+  o12 --- o122
+  o13 --- o131
+  o13 --- o132
+  
+  style o fill:black,stroke:black,stroke-width:1px,color:white
+  style o1 fill:#f22816,stroke:#f22816,stroke-width:1px,color:white
+  style o2 fill:#f2b807,stroke:#f2b807,stroke-width:1px,color:white
+  style o11 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o12 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o13 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o21 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o111 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o112 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o121 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o122 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o131 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  style o132 fill:#fcd4d0,stroke:#fcd4d0,stroke-width:1px
+  
+  linkStyle 0 stroke:#f22816,stroke-width:8px;
+  linkStyle 1 stroke:#f22816,stroke-width:8px;
+  linkStyle 2 stroke:#f22816,stroke-width:5px;
+  linkStyle 3 stroke:#f22816,stroke-width:5px;
+  linkStyle 4 stroke:#f22816,stroke-width:5px;
+  linkStyle 5 stroke:#f22816,stroke-width:5px;
+  linkStyle 6 stroke:#f22816,stroke-width:2px;
+  linkStyle 7 stroke:#f22816,stroke-width:2px;
+  linkStyle 8 stroke:#f22816,stroke-width:2px;
+  linkStyle 9 stroke:#f22816,stroke-width:2px;
+  linkStyle 10 stroke:#f22816,stroke-width:2px;
+  linkStyle 11 stroke:#f22816,stroke-width:2px;
+  ```
+
+  
 
 
 
