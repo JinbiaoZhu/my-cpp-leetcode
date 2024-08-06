@@ -7,8 +7,8 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    vector<int> data = { 1,NULL,2,3 };
-    TreeNode* root = buildTree(data, 0);
+    vector<int> data = { 1,-100,2,3 };
+    TreeNode* root = buildTree(data);
     vector<int> result = postorderTraversal(root);
 
     for (vector<int>::iterator i = result.begin(); i != result.end(); i++) 

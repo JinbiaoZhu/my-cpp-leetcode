@@ -1,10 +1,10 @@
-﻿// _144_preorder_traversal.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+﻿// _094_in_order_traversal.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
 #include <iostream>
+#include"inorderTraversal.h"
+#include"TreeNode.h"
 #include<vector>
-#include"preorderTraversal.h"
-#include"treeNode.h"
 
 using namespace std;
 
@@ -12,12 +12,11 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    vector<int> data = { 1,-100,2,3, -100, 4, 5 };
-    
-    treeNode* rootNode = buildTree(data);
-    vector<int> result = preorderTraversal(rootNode);
+    vector<int> data = { 2,7,9,-1,1,9,6,-1,-1,10 };
+    TreeNode* root = buildTree(data);
+    vector<int> result = inorderTraversal(root);
 
-    for (vector<int>::iterator i = result.begin(); i != result.end(); i++)
+    for (vector<int>::iterator i = result.begin(); i != result.end(); i++) 
     {
         cout << *i << endl;
     }

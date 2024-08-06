@@ -13,5 +13,5 @@ struct treeNode
 	treeNode(int x, treeNode* left, treeNode* right);
 };
 
-treeNode* buildTree(const std::vector<int>& values, int index);
+treeNode* buildTree(vector<int>& values);
 

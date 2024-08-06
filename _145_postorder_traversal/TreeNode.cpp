@@ -21,19 +21,37 @@ TreeNode::TreeNode(int x, TreeNode* left, TreeNode* right)
 	this->right = right;
 }
 
-TreeNode* buildTree(vector<int> data, int index)
+TreeNode* buildTree(vector<int>& data)
 {
-	if (index >= data.size() || data[index] == NULL) 
+	vector<TreeNode*> TreeNodeList;
+
+	for (int i=0;i<data.size(); i++) 
 	{
-		return nullptr;
+		if (data.at(i) != -100) 
+		{
+			TreeNode* tmpNode = new TreeNode(data.at(i));
+			TreeNodeList.push_back(tmpNode);
+		}
+		else
+		{
+			TreeNode* tmpNode;
+			tmpNode = nullptr;
+			TreeNodeList.push_back(tmpNode);
+		}
+		
 	}
 
-	TreeNode* newNode = new TreeNode();
-	newNode->val = data[index];
-	newNode->left = buildTree(data, index + 1);
-	newNode->right = buildTree(data, index + 2);
-	index += 2;
+	for (int j = 0; 2 * j + 1 < TreeNodeList.size(); j++) 
+	{
+		if (TreeNodeList.at(j) != nullptr) 
+		{
+			TreeNodeList.at(j)->left = TreeNodeList.at(2 * j + 1);
+			if (2 * j + 2 < TreeNodeList.size()) 
+			{
+				TreeNodeList.at(j)->right = TreeNodeList.at(2 * j + 2);
+			}
+		}
+	}
 
-	return newNode;
-
+	return TreeNodeList.at(0);
 }
