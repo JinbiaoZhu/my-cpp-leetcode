@@ -14,9 +14,19 @@ int main()
 
     vector<int> data = { 2,7,9,-1,1,9,6,-1,-1,10 };
     TreeNode* root = buildTree(data);
-    vector<int> result = inorderTraversal(root);
+    // vector<int> result = inorderTraversal(root);
+    vector<int> result = inorderTraversalforStack(root);
+    for (vector<int>::iterator i = result.begin();
+        i != result.end(); i++)
+    {
+        cout << *i << endl;
+    }
 
-    for (vector<int>::iterator i = result.begin(); i != result.end(); i++) 
+    vector<int> resultv2 = inorderTraversalforStackv2(root);
+
+    // version2
+    for (vector<int>::iterator i = resultv2.begin();
+        i != resultv2.end() && *i!=NULL; i++)
     {
         cout << *i << endl;
     }

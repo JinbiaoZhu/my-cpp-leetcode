@@ -1,10 +1,10 @@
-﻿// _144_preorder_traversal.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+﻿// _199_right_side_view.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
 #include <iostream>
+#include"TreeNode.h"
+#include"rightSideView.h"
 #include<vector>
-#include"preorderTraversal.h"
-#include"treeNode.h"
 
 using namespace std;
 
@@ -12,15 +12,13 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    vector<int> data = { 1,-100,2,3, -100, 4, 5 };
-    
-    treeNode* rootNode = buildTree(data);
-    // vector<int> result = preorderTraversal(rootNode);
-    vector<int> result = preorderTraversalforStack(rootNode);
+    vector<int> data = { 1,2,3,-100,5,-100,4 };
+    TreeNode* root = buildTree(data);
+    vector<int> result = rightSideView(root);
 
-    for (vector<int>::iterator i = result.begin(); i != result.end(); i++)
+    for (int i = 0; i < result.size(); i++)
     {
-        cout << *i << endl;
+        cout << result.at(i) << "\t";
     }
 
     cin.get();

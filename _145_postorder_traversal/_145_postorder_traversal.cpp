@@ -9,7 +9,8 @@ int main()
 
     vector<int> data = { 1,-100,2,3 };
     TreeNode* root = buildTree(data);
-    vector<int> result = postorderTraversal(root);
+    // vector<int> result = postorderTraversal(root);
+    vector<int> result = postorderTraversalforStack(root);
 
     for (vector<int>::iterator i = result.begin(); i != result.end(); i++) 
     {

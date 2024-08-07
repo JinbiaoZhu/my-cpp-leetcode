@@ -1,10 +1,10 @@
-﻿// _144_preorder_traversal.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+﻿// _107_level_order_bottom.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
 #include <iostream>
+#include"TreeNode.h"
+#include"levelOrderReverse.h"
 #include<vector>
-#include"preorderTraversal.h"
-#include"treeNode.h"
 
 using namespace std;
 
@@ -12,17 +12,20 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    vector<int> data = { 1,-100,2,3, -100, 4, 5 };
-    
-    treeNode* rootNode = buildTree(data);
-    // vector<int> result = preorderTraversal(rootNode);
-    vector<int> result = preorderTraversalforStack(rootNode);
+    vector<int> data = { 3,9,20,-100,-100,15,7 };
+    TreeNode* root = buildTree(data);
+    vector<vector<int>> result = levelOrderReverse(root);
 
-    for (vector<int>::iterator i = result.begin(); i != result.end(); i++)
+    for (int row = 0; row < result.size(); row++) 
     {
-        cout << *i << endl;
+        for (int col = 0; col < result.at(row).size(); col++)
+        {
+            cout << result.at(row).at(col) << "\t";
+        }
+        cout << endl;
+        cout << "---" << endl;
     }
-
+    
     cin.get();
     return 0;
 }
