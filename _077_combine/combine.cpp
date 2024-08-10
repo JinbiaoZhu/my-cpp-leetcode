@@ -22,7 +22,7 @@ void backtracking(int n, int k, int startIndex, vector<vector<int>>& total_resul
 	}
 
 	// È·¶¨»ØËÝÂß¼­
-	for (int i = startIndex; i <= n; i++)
+	for (int i = startIndex; i <= n - (k-path.size())+1; i++)
 	{
 		path.push_back(i);
 		backtracking(n, k, i + 1, total_result, path);
