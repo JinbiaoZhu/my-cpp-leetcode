@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_063_unique_paths_with_obstacles", "_063_unique_paths_with_obstacles.vcxproj", "{7042E2D3-7ECC-4701-A082-66CD91984AC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7042E2D3-7ECC-4701-A082-66CD91984AC6}.Debug|x64.ActiveCfg = Debug|x64
+		{7042E2D3-7ECC-4701-A082-66CD91984AC6}.Debug|x64.Build.0 = Debug|x64
+		{7042E2D3-7ECC-4701-A082-66CD91984AC6}.Debug|x86.ActiveCfg = Debug|Win32
+		{7042E2D3-7ECC-4701-A082-66CD91984AC6}.Debug|x86.Build.0 = Debug|Win32
+		{7042E2D3-7ECC-4701-A082-66CD91984AC6}.Release|x64.ActiveCfg = Release|x64
+		{7042E2D3-7ECC-4701-A082-66CD91984AC6}.Release|x64.Build.0 = Release|x64
+		{7042E2D3-7ECC-4701-A082-66CD91984AC6}.Release|x86.ActiveCfg = Release|Win32
+		{7042E2D3-7ECC-4701-A082-66CD91984AC6}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DBD4139C-5DFF-419D-A8C4-125D6A66FB18}
+	EndGlobalSection
+EndGlobal
