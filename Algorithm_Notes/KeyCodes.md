@@ -32,6 +32,26 @@
    ```
 
    当 `sort` 函数中没有输入进 `logic` 函数名时，默认是 **升序** / **降序** 。
+   
+4. ACM 模式下容器的输入（以 01 背包问题为例）。
+
+   ```C++
+   // ...
+   int n, bagweight;
+   cin >> n >> bagweight;
+   
+   vector<int> weight(n, 0);  // 物体重量表格
+   vector<int> value(n, 0);   // 物体价值表格
+   
+   for (int i = 0; i < n; ++i)
+   {
+       cin >> weight[i];
+   }
+   for (int i = 0; i < n; ++i)
+   {
+       cin >> value[i];
+   }
+   ```
 
 ### Part 2. 字符串
 
