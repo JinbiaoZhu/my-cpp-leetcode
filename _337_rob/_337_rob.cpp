@@ -1,9 +1,8 @@
-﻿// _122_max_profit.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
+﻿// _337_rob.cpp : 此文件包含 "main" 函数。程序执行将在此处开始并结束。
 //
 
 #include <iostream>
-#include"maxProfit.h"
-#include"maxProfitV2.h"
+#include"rob.h"
 
 using namespace std;
 
@@ -11,13 +10,20 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    vector<int> prices = { 7,6,4,3,1 };
-    //int max_profit = maxProfit(prices);
-    int max_profit = maxProfitV2(prices);
+    int rootLength;
+    cin >> rootLength;
 
-    cout << "The max profit is " << max_profit << endl;
+    vector<int> nodeValues(rootLength, 0);
+    for (int i = 0; i < rootLength; i++)
+    {
+        cin >> nodeValues[i];
+    }
 
-    cin.get();
+    treeNode* root = buildTree(nodeValues);
+    int result = rob(root);
+
+    cout << result << endl;
+
     return 0;
 }
 

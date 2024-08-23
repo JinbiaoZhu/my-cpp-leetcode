@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5c131b9d-d31a-4650-8c62-4a6fdf2db144}</ProjectGuid>
-    <RootNamespace>My122maxprofit</RootNamespace>
+    <ProjectGuid>{0128e5c5-5824-4aea-85dd-c207fd231d7a}</ProjectGuid>
+    <RootNamespace>My337rob</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,13 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="maxProfit.cpp" />
-    <ClCompile Include="maxProfitV2.cpp" />
-    <ClCompile Include="_122_max_profit.cpp" />
+    <ClCompile Include="rob.cpp" />
+    <ClCompile Include="TreeNode.cpp" />
+    <ClCompile Include="_337_rob.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="maxProfit.h" />
-    <ClInclude Include="maxProfitV2.h" />
+    <ClInclude Include="rob.h" />
+    <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,22 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="_122_max_profit.cpp">
+    <ClCompile Include="_121_max_profit.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="maxProfit.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="maxProfitV2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="maxProfit.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="maxProfitV2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
