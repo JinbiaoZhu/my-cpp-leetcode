@@ -10,10 +10,12 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    vector<int> nums = { 5,4,-1,7,8 };
+    vector<int> nums = { -2,1,-3,4,-1,2,1,-5,4 };
     int result = maxSubArray(nums);
+    int result_version_2 = maxSubArray_dp_version(nums);
 
-    cout << "Maximum sum is " << result << endl;
+    cout << "Maximum sum is (version 1) " << result << endl;
+    cout << "Maximum sum is (verison 2) " << result_version_2 << endl;
 
     cin.get();
     return 0;
