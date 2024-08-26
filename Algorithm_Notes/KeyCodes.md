@@ -53,7 +53,35 @@
    }
    ```
 
-### Part 2. 字符串
+### Part 2. `list` 容器
+
+1. `list` 容器相当于 C++ 语言中内置的链表数据结构。
+
+   定义、初始化和遍历如下代码所示：
+
+   ```c++
+   #inclue <list>
+   
+   using namespace std;
+   
+   vector<list<int>> graph(m+1);
+   for (int i = 1; i <= m; i++)
+   {
+   	cin >> s >> t;
+   	graph[s].push_back(t);
+   }
+   
+   for (int i = 1; i < graph.size(); i++)
+   {
+   	for (int j : graph[i])
+   	{
+   		cout << j << " ";
+   	}
+   	cout << endl;
+   }
+   ```
+
+### Part 3. 字符串
 
 1. 整型数 `n` 和字符串 `strNum` 的互转换（假设是可转换成字符串的整型数）。
 
