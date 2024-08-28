@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{55ec1c4b-6cae-438f-8866-ec8c38329a7f}</ProjectGuid>
-    <RootNamespace>KAMA103stream</RootNamespace>
+    <ProjectGuid>{52de9745-2d0d-45cf-952f-62549e371a84}</ProjectGuid>
+    <RootNamespace>KAMA105completereachabilityofdirectedgraph</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,13 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="dfs.cpp" />
-    <ClCompile Include="dfs_v2.cpp" />
-    <ClCompile Include="_KAMA_103_stream.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="dfs.h" />
-    <ClInclude Include="dfs_v2.h" />
+    <ClCompile Include="_KAMA_105_complete_reachability_of_directed_graph.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

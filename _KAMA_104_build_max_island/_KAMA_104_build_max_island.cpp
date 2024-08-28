@@ -48,9 +48,11 @@ int main()
 {
     std::cout << "Hello World!\n";
 
+	// 输入行数和列数
 	cin >> N >> M;
 	vector<vector<int>> grid(N, vector<int>(M, 0));
 
+	// 输入地图
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < M; j++)
@@ -58,6 +60,7 @@ int main()
 			cin >> grid[i][j];
 		}
 	}
+	cout << "----------" << endl;
 
 	// 打印输出
 	for ( vector<int>& row:grid )
@@ -86,12 +89,13 @@ int main()
 				isAllGrid = false;
 			}
 
+			// 前序 dfs 遍历完之后, 在 isVisited 里面会存储已经遍历过的标记
 			if (isVisited[i][j] == false && grid[i][j] == 1)
 			{
-				COUNT = 0;
+				COUNT = 0;  // 记录当前海岛的面积
 				dfs(grid, isVisited, i, j, mark);
-				gridNum[mark] = COUNT;
-				mark++;
+				gridNum[mark] = COUNT;  // 在这个字典数据格式中记录当前标记 mark 对应海岛的面积
+				mark++;  // 使用新的 mark
 			}
 		}
 	}
@@ -112,7 +116,7 @@ int main()
 		{
 			COUNT = 1;
 			visitedGrid.clear();
-			if (grid[i][j] == 0)
+			if (grid[i][j] == 0)  // 探索是海水的区域设计岛屿
 			{
 				for (int d = 0; d < 4; d++)
 				{
@@ -123,11 +127,17 @@ int main()
 					{
 						continue;
 					}
+
+					// 如果海岛周围陆地是标记过的话
 					if (visitedGrid.count(grid[ni][nj]))
 					{
 						continue;
 					}
+
+					// 如果没有被标记, 那么海岛面积等于刚才的 1 加上现在的区域面积
 					COUNT += gridNum[grid[ni][nj]];
+
+					// 在这里添加上已经标记过的信号
 					visitedGrid.insert(grid[ni][nj]);
 				}
 			}

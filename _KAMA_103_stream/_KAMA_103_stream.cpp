@@ -2,13 +2,15 @@
 //
 
 #include <iostream>
-#include "dfs.h"
+//#include "dfs.h"
+#include"dfs_v2.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
 
-    main_dfs(); 
+    //main_dfs(); 
+    main_dfs_v2();
 
     return 0;
 }

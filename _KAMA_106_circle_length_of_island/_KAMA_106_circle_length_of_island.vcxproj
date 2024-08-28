@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{55ec1c4b-6cae-438f-8866-ec8c38329a7f}</ProjectGuid>
-    <RootNamespace>KAMA103stream</RootNamespace>
+    <ProjectGuid>{ea516ce7-97df-4dfd-9333-83d89d38c46d}</ProjectGuid>
+    <RootNamespace>KAMA106circlelengthofisland</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,13 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="dfs.cpp" />
-    <ClCompile Include="dfs_v2.cpp" />
-    <ClCompile Include="_KAMA_103_stream.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="dfs.h" />
-    <ClInclude Include="dfs_v2.h" />
+    <ClCompile Include="_KAMA_106_circle_length_of_island.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

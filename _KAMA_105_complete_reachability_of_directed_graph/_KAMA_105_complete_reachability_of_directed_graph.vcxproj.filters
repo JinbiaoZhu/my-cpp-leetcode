@@ -15,22 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="_KAMA_103_stream.cpp">
+    <ClCompile Include="_KAMA_105_complete_reachability_of_directed_graph.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="dfs.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="dfs_v2.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="dfs.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="dfs_v2.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
