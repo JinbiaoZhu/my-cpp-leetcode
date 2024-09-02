@@ -15,28 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="_KAMA_053_find_treasure_kruskal_version.cpp">
+    <ClCompile Include="20240829_sf_2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DisjointSet.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Edge.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="sort.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="DisjointSet.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Edge.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="sort.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

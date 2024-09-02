@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5d6a0350-35ea-4ae8-a4de-f153f8c72340}</ProjectGuid>
-    <RootNamespace>KAMA053findtreasurekruskalversion</RootNamespace>
+    <ProjectGuid>{a205c715-7cdc-420f-8b2f-a1b6be4eb741}</ProjectGuid>
+    <RootNamespace>KAMA117softwarebuilding</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,15 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DisjointSet.cpp" />
-    <ClCompile Include="Edge.cpp" />
-    <ClCompile Include="sort.cpp" />
-    <ClCompile Include="_KAMA_053_find_treasure_kruskal_version.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="DisjointSet.h" />
-    <ClInclude Include="Edge.h" />
-    <ClInclude Include="sort.h" />
+    <ClCompile Include="_KAMA_117_software_building.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

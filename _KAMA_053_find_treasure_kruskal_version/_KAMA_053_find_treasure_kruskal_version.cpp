@@ -2,9 +2,10 @@
 //
 
 #include <iostream>
-#include<algorithm>
-#include"DisjointSet.h"
-#include"Edge.h"
+#include <algorithm>
+#include "DisjointSet.h"
+#include "Edge.h"
+#include "sort.h"
 
 using namespace std;
 
@@ -15,30 +16,30 @@ int main()
     int V, E;
     int v1, v2, val;
 
+    cin >> V >> E;
+
+    vector<Edge> myEdges(E);
+    for (int i = 0; i < E; i++)
+    {
+        cin >> v1 >> v2 >> val;
+        myEdges[i] = { v1,v2,val };
+    }
+
     int N = 10001;
     int result_value = 0;
     vector<int> fatherSet(N, -1);
-    vector<Edge> myEdges(N);
+    
     vector<Edge> result_edges;
     
-    cin >> V >> E;
-    for (int i = 0; i < N; i++)
-    {
-        cin >> v1 >> v2 >> val;
-        myEdges.push_back({ v1,v2,val });
-    }
 
     sort(myEdges.begin(),
         myEdges.end(),
-        [](Edge& a, Edge& b)
-        {
-            return a.weight < b.weight;
-        }
+        sortAlgorithm
     );
 
     init(fatherSet);
 
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < E; i++)
     {
         int x = find(fatherSet, myEdges[i].left);
         int y = find(fatherSet, myEdges[i].right);
@@ -49,13 +50,14 @@ int main()
             result_value += myEdges[i].weight;
             join(fatherSet, x, y);
         }
-
     }
 
-    for (Edge edge : myEdges )
+    for (Edge edge : result_edges)
     {
         cout << edge.left << " -> " << edge.right << endl;
     }
+
+    cout << result_value << endl;
 
     return 0;
 }
