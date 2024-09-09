@@ -5,6 +5,7 @@
 #include <vector>
 #include <queue>
 #include <list>
+
 #define infinity 9999
 
 using namespace std;
